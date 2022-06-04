@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "449517905574",
+    "project_id": "flightworks-dev",
+    "storage_bucket": "flightworks-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449517905574:android:c009695d1b62f25d57f667",
+        "android_client_info": {
+          "package_name": "com.flightworks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449517905574-j5lls6k7h5cusglq03oq0m6dsh8k5vc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flightworks",
+            "certificate_hash": "506239b305c777eecbbe2cf3e712f9c11bab5f31"
+          }
+        },
+        {
+          "client_id": "449517905574-vdm95mde101ai5l07j3bffac0kmfboa9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI_YRlMPya5nEIscjsoqzjI2oHi__sJ7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449517905574-vdm95mde101ai5l07j3bffac0kmfboa9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

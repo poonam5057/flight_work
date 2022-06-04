@@ -1,0 +1,66 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /sample/{document=**} {
+      allow read: if true;
+    }
+
+    match /aircraft/{document=**} {
+      allow read, write: if true;
+    }
+
+    match /users/{userId}/{document=**} {
+      allow read, create: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && request.auth.uid == userId &&
+        (request.resource.data.diff(resource.data).affectedKeys()
+        .hasOnly(['passengers', 'firstName', 'lastName', 'phoneNumber', 'notificationTokens']));
+      allow read: if isCompanyMember(resource.data.managementCompany.docId);
+      allow update: if isManagerUpdatingOrAddingCompanyUser(resource.data, request.resource.data);
+    }
+
+    match /managementCompanies/{document=**} {
+      allow read: if isCompanyMember(resource.id);
+      allow update: if isCompanyEmployee(resource.id);
+    }
+
+    match /managementCompanies/{company}/trips/{document=**} {
+      allow read, write: if isCompanyMember(company);
+    }
+
+    match /managementCompanies/{company}/aircraft/{document=**} {
+      allow read, write: if isCompanyMember(company);
+    }
+
+    match /managementCompanies/{company}/accountRequests/{document=**} {
+      allow read, write: if isCompanyEmployee(company);
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isManagerUpdatingOrAddingCompanyUser(user, updates) {
+      let manager = getReqUser().data;
+      return manager.role in ['manager', 'employee'] &&
+        ((!('managementCompany' in user) && 'managementCompany' in updates) ||
+        user.managementCompany.docId == manager.managementCompany.docId)
+    }
+
+    // Company employees are only the "manager" and the "employee" roles
+    function isCompanyEmployee(companyDocId) {
+      let user = getReqUser().data;
+      return request.auth != null && user.managementCompany.docId == companyDocId &&
+        user.role in ['manager', 'employee'];
+    }
+
+    // Company members are everybody involved with the company including "pilot" and "owner" roles
+    function isCompanyMember(companyDocId) {
+      return request.auth != null && getReqUser().data.managementCompany.docId == companyDocId;
+    }
+
+    function getReqUser() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+  }
+}

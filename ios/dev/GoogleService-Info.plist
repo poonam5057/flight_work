@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>449517905574-qufss3558kcgurk7goin5r39hp9gtc5k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.449517905574-qufss3558kcgurk7goin5r39hp9gtc5k</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>449517905574-j5lls6k7h5cusglq03oq0m6dsh8k5vc9.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCih6IjHE1iRfzE66qC_idxHSsh_-KDC_w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>449517905574</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.ensembleapps.flightapp</string>
+	<key>PROJECT_ID</key>
+	<string>flightworks-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flightworks-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:449517905574:ios:c0d077c6a73c9d3b57f667</string>
+</dict>
+</plist>

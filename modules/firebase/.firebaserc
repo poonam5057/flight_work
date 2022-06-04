@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "flightworks-dev",
+    "dev": "flightworks-dev",
+    "staging": "flightapp-staging",
+    "prod": "flightapp-prod"
+  }
+}
